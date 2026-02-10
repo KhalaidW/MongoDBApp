@@ -2,6 +2,7 @@
 import express from 'express';
 import { logReq, globalErr } from './middleware/middlewar.js';
 import dotenv from 'dotenv';
+import db from "./db/conn.js";
 
 // Setups
 dotenv.config();
@@ -10,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(express.json());
-app.use(logReq)
+app.use(logReq);
 
 // Routes
 
