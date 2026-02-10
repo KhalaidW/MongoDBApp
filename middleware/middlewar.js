@@ -1,6 +1,6 @@
 export const logReq = (req, res, next) => {
     console.log(
-        `${req.method} -- ${req.url} -- ${new Date().toLocateTimeString()}`,
+        `${req.method} -- ${req.url} -- ${new Date().toLocaleTimeString()}`,
     );
 
     if(req.body){

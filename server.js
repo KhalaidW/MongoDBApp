@@ -2,7 +2,7 @@
 import express from 'express';
 import { logReq, globalErr } from './middleware/middlewar.js';
 import dotenv from 'dotenv';
-import db from "./db/conn.js";
+import raceRoutes from "./routes/raceRoutes.js";
 
 // Setups
 dotenv.config();
@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(logReq);
 
 // Routes
+app.use("/api/races", raceRoutes);
 
 // Global err Handling
 app.use(globalErr);

@@ -23,7 +23,7 @@ try {
 }
 
 // Choose our database
-let db = conn.db('test_db');
+let db = conn.db('sba');
 
 // Export out Loaded db module
 export default db;
