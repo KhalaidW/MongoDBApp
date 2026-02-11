@@ -25,5 +25,10 @@ try {
 // Choose our database
 let db = conn.db('sba');
 
+// Indexes
+await db.collection("races").createIndex({ race: 1 });
+await db.collection("class").createIndex({ class: 1 });
+await db.collection("backgrounds").createIndex({ background: 1 });
+
 // Export out Loaded db module
 export default db;

@@ -2,6 +2,8 @@
 import express from 'express';
 import { logReq, globalErr } from './middleware/middlewar.js';
 import dotenv from 'dotenv';
+
+// Routes
 import raceRoutes from "./routes/raceRoutes.js";
 import classRoutes from "./routes/classRoutes.js";
 import backgroundRoutes from "./routes/backgroundRoutes.js";
@@ -9,7 +11,7 @@ import backgroundRoutes from "./routes/backgroundRoutes.js";
 // Setups
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || "";
 
 // Middleware
 app.use(express.json());
