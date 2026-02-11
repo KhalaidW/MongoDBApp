@@ -23,7 +23,7 @@ router
         let collection = db.collection('races');
 
         // Perform Action
-        let results = await collection.find({}).toArray();
+        let results = await collection.find({}).sort("race", 1).toArray();
 
         // Return the Results
         res.json(results);
@@ -60,9 +60,20 @@ router
 
         // Return Results
         res.json(result);
-    });
+    })
+    .get(async (req, res) => {
+        // Create filterable object
+        let query = { _id: new ObjectId(req.params.id) };
 
+        // Specify Collection
+        let collection = db.collection("races");
 
-// Show One
+        // Perform action
+        let result = await collection.findOne(query);
+
+        // Return Results
+        res.json(result);
+    })
+
 
 export default router;
