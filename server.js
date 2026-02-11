@@ -3,6 +3,8 @@ import express from 'express';
 import { logReq, globalErr } from './middleware/middlewar.js';
 import dotenv from 'dotenv';
 import raceRoutes from "./routes/raceRoutes.js";
+import classRoutes from "./routes/classRoutes.js";
+import backgroundRoutes from "./routes/backgroundRoutes.js";
 
 // Setups
 dotenv.config();
@@ -15,6 +17,8 @@ app.use(logReq);
 
 // Routes
 app.use("/api/races", raceRoutes);
+app.use("/api/classes", classRoutes);
+app.use("/api/backgrounds", backgroundRoutes);
 
 // Global err Handling
 app.use(globalErr);
