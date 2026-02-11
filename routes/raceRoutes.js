@@ -32,9 +32,9 @@ router
 // Read - Show All
 router
     .route("/:id")
-    .patch(async (req, res) =>{
+    .patch(async (req, res) => {
         // Create filterable object
-        let query = { _id: new ObjectId(req.params.id )};
+        let query = { _id: new ObjectId(req.params.id) };
 
         // create update object
         let update = { $set: req.body };
@@ -48,10 +48,20 @@ router
         // Return Results
         res.json(results);
     })
+    .delete(async (req, res) => {
+        // Create filterable object
+        let query = { _id: new ObjectId(req.params.id) };
 
-// Update
+        // Specify Collection
+        let collection = db.collection("races");
 
-// Delete
+        // Perform action
+        let result = await collection.deleteOne(query);
+
+        // Return Results
+        res.json(result);
+    });
+
 
 // Show One
 
